@@ -23,13 +23,18 @@ namespace Business.Concrete
 
         public IResult Add(Company company)
         {
-            _companyDal.Add(company);
-            return new SuccessResult(Messages.AddedCompany);
+            //validation islemi daha sonradan fluent api ile duzenlenecektir.
+            if (company.Name.Length > 10)
+            {
+                _companyDal.Add(company);
+                return new SuccessResult(Messages.AddedCompany);
+            }
+            return new ErrorResult("Sirket adi en az 10 karakter olmalidir!");
         }
 
         public IDataResult<List<Company>> GetList()
         {
-            return new SuccessDataResult<List<Company>>(_companyDal.GetList());
+            return new SuccessDataResult<List<Company>>(_companyDal.GetList(), "Listeleme islemi basarili");
         }
     }
 }
