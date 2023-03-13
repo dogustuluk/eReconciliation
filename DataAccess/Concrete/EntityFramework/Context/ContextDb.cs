@@ -1,11 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework.Context
 {
@@ -16,8 +11,9 @@ namespace DataAccess.Concrete.EntityFramework.Context
             /*integrated security
              * inegrated security'i true yapiyoruz cunku veri tabanini bir sunucu uzerinden ya da bir kullanici girisi yapilarak calistirmiyoruz. eger bahsi gecen her iki turden bir erisim olacaksa veri tabanina burada integrated security'i false olarak belirtmemiz gerekmektedir.
              */
-            optionsBuilder.UseSqlServer(@"\Server=DESKTOP-1C9EMR6; Database=eReconciliationDb; Integrated Security=true;");
-        }
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-1C9EMR6;Initial Catalog=eReconciliationDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+        }       
 
         public DbSet<AccountReconciliation> AccountReconciliations { get; set; }
         public DbSet<AccountReconciliationDetail> AccountReconciliationDetails { get; set; }

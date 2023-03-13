@@ -3,6 +3,9 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.EntityFramework.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +15,7 @@ using System.Threading.Tasks;
 namespace Business.DependencyResolvers.Autofac
 {
     public class AutofacBussinessModule : Module
-    {
+    {//hatayı gösterir misin
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<AccountReconciliationDetailManager>().As<IAccountReconciliationDetailService>();
@@ -34,10 +37,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfCurrencyAccountDal>().As<ICurrencyAccountDal>();
 
             builder.RegisterType<CurrencyManager>().As<ICurrencyService>();
-            builder.RegisterType<EfCurrencyDal>().As < ICurrencyDal>();
+            builder.RegisterType<EfCurrencyDal>().As<ICurrencyDal>();
 
             builder.RegisterType<MailParameterManager>().As<IMailParameterService>();
             builder.RegisterType<EfMailParameterDal>().As<IMailParameterDal>();
+
 
         }
     }
