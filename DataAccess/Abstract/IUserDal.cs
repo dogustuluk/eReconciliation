@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IUserDal : IEntityRepository<User>
     {
+        List<OperationClaim> GetClaims(User user, int companyId);//hangi kullanicinin hangi sirkette hangi yetkisi var
     }
 }
