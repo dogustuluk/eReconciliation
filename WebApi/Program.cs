@@ -28,7 +28,7 @@ builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin",
-        builder => builder.WithOrigins("https://localhost:4200")); //with origins ile izin verecegimiz apiyi yazariz. tum apilere izin icin allow ile gecebiliriz.
+        builder => builder.WithOrigins("https://localhost:7286")); //with origins ile izin verecegimiz apiyi yazariz. tum apilere izin icin allow ile gecebiliriz.
 });
 
 var tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -67,7 +67,7 @@ if (app.Environment.IsDevelopment())
 }
 
 //cors"u ekle
-app.UseCors(builder => builder.WithOrigins("https://localhost:4200").AllowAnyHeader());//AllowAnyHeader => bu adresten gelen tum istekleri karsila anlaminda kullanilir.
+app.UseCors(builder => builder.WithOrigins("https://localhost:7286").AllowAnyHeader());//AllowAnyHeader => bu adresten gelen tum istekleri karsila anlaminda kullanilir.
 
 app.UseHttpsRedirection();
 
