@@ -14,6 +14,7 @@ namespace Business.Constans
         public static string SuccessfulLogin = "Giris basarili";
         public static string UserRegistered = "Kayit basarili";
         public static string UseAlreadyExists = "Bu mail adresi daha onceden alinmis";
+        public static string CompanyAlreadyExists = "Bu sirket daha onceden kayit edilmis";
 
     }
 }
